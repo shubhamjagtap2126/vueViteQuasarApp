@@ -1,0 +1,38 @@
+{
+  "name": "My ViteVueQuasarSheet PWA App",
+  "short_name": "My VVQS App",
+  "description": "A cool Progressive Web App",
+  "categories": ["education", "webapp"],
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#3740ff",
+  "theme_color": "#fff",
+  "id": "/",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "./images/192x192.png", 
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./images/512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [{ "name": "Home", "url": "/" }],
+  "screenshots": [
+    {
+      "src": "./images/screenshot1.png",
+      "sizes": "540x720",
+      "type": "image/png"
+    },
+    {
+      "src": "./images/screenshot2.png",
+      "sizes": "540x720",
+      "type": "image/png"
+    }
+  ]
+}

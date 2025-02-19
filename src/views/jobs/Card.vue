@@ -12,7 +12,7 @@ defineProps({
 </script>
 
 <template>
-  <q-card :class="`${bg}  q-my-sm`">
+  <q-card :class="`${bg}  q-my-sm :md:w-1/2 :xs:w-full`" >
     <!-- <slot></slot> -->
     <q-card-section>
       <div class="text-h6">{{title}}</div>

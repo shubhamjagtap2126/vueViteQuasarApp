@@ -8,10 +8,10 @@ import JobListings from './JobListings.vue';
   <Hero bg="bg-green-6" />
 
   <div class="row justify-center items-center">
-    <Card class="" title="For Developers" description="Browse our Vue jobs and start your career today"
+    <Card class="mx-2" title="For Developers" description="Browse our Vue jobs and start your career today"
       btn="Browse Jobs"></Card>
       
-    <Card bg="bg-light-blue-2" btn="Post Jobs" btnColor="blue"
+    <Card bg="bg-light-blue-2 mx-2" btn="Post Jobs" btnColor="blue"
       description="Create our Vue jobs and start your career today" title="For Company"></Card>
   </div>
 

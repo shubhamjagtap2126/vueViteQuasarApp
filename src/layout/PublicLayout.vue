@@ -1,16 +1,15 @@
-
 <template>
   <q-layout view="lHh Lpr lFf">
     <!-- Header for md and above -->
     <q-header elevated class="bg-blue-600">
       <q-toolbar>
         <!-- Logo -->
-        <q-toolbar-title to="/">
-          My Website
-        </q-toolbar-title>
+        <router-link to="/">
+          <q-toolbar-title> My Website </q-toolbar-title>
+        </router-link>
 
         <!-- Desktop Navigation Links (md and above) -->
-         <div class="md:flex flex-row space-x-3 ml-auto">
+        <div class="flex flex-row space-x-3 ml-auto">
           <q-btn v-for="(link, index) in navLinks" :key="index" flat :label="link.label" :to="link.to" class="text-white q-pa-none" />
         </div>
 
@@ -34,24 +33,28 @@
     <q-page-container>
       <router-view />
     </q-page-container>
+
+    <q-footer elevated>
+      <div class="q-pa-md text-center">&copy; 2024 All rights reserved.</div>
+    </q-footer>
   </q-layout>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 
 const drawerOpen = ref(false); // Controls the visibility of the mobile drawer
 
 // Define the navigation links
 const navLinks = [
-  { label: 'Home', to: '/' },
-  { label: 'Testing', to: '/about' },
-  { label: 'User', to: '/u' },
-  { label: 'Admin', to: '/admin' },
-  { label: 'Whatsapp', to: '/whatsapp' },
-  { label: 'Youtube', to: '/youtube' }
+  { label: "Testing", to: "/about" },
+  { label: "Ticketmania", to: "/tickets" },
+  { label: "Mail", to: "/mail" },
+  { label: "Whatsapp", to: "/whatsapp" },
+  { label: "Youtube", to: "/youtube" },
+  { label: "User", to: "/u" },
+  { label: "Admin", to: "/admin" },
 ];
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

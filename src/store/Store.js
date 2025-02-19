@@ -73,11 +73,12 @@ export const useTransactionStore = defineStore("transaction", () => {
 
 // *********=============== ✨ Store User Authentication 🌟  ===============********* //
 // localStorage.setItem("user", JSON.stringify({name: 'SJ', email: 'zL6Fg@example.com'}))
+// localStorage.setItem("user", JSON.stringify({name: 'SJ', email: 'zL6Fg@example.com', isAdmin: true}))  
 
 export const useAuthStore = defineStore("auth", () => {
-  const user = ref(localStorage.getItem("user") || null);
+  const user = ref(JSON.parse(localStorage.getItem("user")) || null);
   const isAuthenticated = ref(user ? true : false);
-  // const token = ref(localStorage.getItem("token") || null);
+  // const token = ref(JSON.parse(localStorage.getItem("token")) || null);
   const loading = ref(false);
   const error = ref(null);
   const router = useRouter(); // Get the router instance
@@ -105,7 +106,7 @@ export const useAuthStore = defineStore("auth", () => {
         position: "top-right",
         color: "positive",
       });
-      router.push("/u");
+      router.push("/u/home");
     } catch (err) {
       error.value = err.error;
       Notify.create({
@@ -125,7 +126,7 @@ export const useAuthStore = defineStore("auth", () => {
     console.log(response);
     try {
       if (!response.success) error.value = "Signup failed.";
-      router.push("/u");
+      router.push("/u/home");
       isAuthenticated.value = true;
       loading.value = false;
       user.value = response.user;
@@ -188,3 +189,10 @@ export const useAuthStore = defineStore("auth", () => {
     initialize,
   };
 });
+
+// *********=============== ✨ Store🌟  ===============********* //
+
+
+
+
+// *********=============== ✨ Store 🌟  ===============********* //

@@ -1,25 +1,26 @@
 <template>
-  <q-layout view="hHh Lpr lff" class="shadow-2 rounded-borders">
+  <q-layout view="hHh lpR fFf" class="shadow-2 rounded-borders">
     <!-- lHh Lpr lff | hHh lpR lFf -->
     <q-header elevated class="bg-cyan-8">
       <!--  -->
       <q-toolbar>
         <q-btn flat @click="drawer = !drawer" round dense icon="menu" />
-        <q-toolbar-title
-          >{{ `Welcome ${authStore.user.name}` }}
-          <span class="text-subtitle1" side>{{ timeStamp }}</span>
-        </q-toolbar-title>
-        <q-btn @click="authStore.logout" color="primary">Logout</q-btn>
+        <router-link to="/u">
+          <q-toolbar-title
+            >{{ `Welcome ${authStore.user.name}` }}
+            <span class="text-subtitle1" side>{{ timeStamp }}</span>
+          </q-toolbar-title>
+        </router-link>
       </q-toolbar>
     </q-header>
 
     <!--  -->
-    <q-drawer v-model="drawer" show-if-above :width="150" :breakpoint="540">
+    <q-drawer v-model="drawer" :width="200" :breakpoint="540" overlay>
       <!--  -->
       <q-img class="absolute-top" src="https://cdn.quasar.dev/img/material.png" style="height: 150px">
         <div class="absolute-bottom bg-transparent">
           <q-avatar size="56px" class="q-mb-sm">
-            <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+            <img src="https://picsum.photos/200" />
           </q-avatar>
           <div class="text-weight-bold">{{ `Hello ${authStore.user.name}` }}</div>
           <div>{{ `${authStore.user.email}` }}</div>
@@ -28,15 +29,15 @@
 
       <!--  -->
       <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px; border-right: 2px solid #ddd">
-        <q-list>
-          <q-item v-for="link in linksList" :key="link.name" :to="{ name: link.link }"clickable>
-            <q-item-section avatar>
-              <q-icon :name="link.icon" />
-            </q-item-section>
-
-            <q-item-section>
-              <q-item-label>{{ link.name }}</q-item-label>
-            </q-item-section>
+        <q-list class="">
+          <q-item v-for="link in linksList" :key="link.name" :to="{ name: link.link }" clickable v-ripple>
+            <q-item>
+              <q-item-section avatar top>
+                <q-icon :name="link.icon" size="md" class="q-mr-sm" />
+              </q-item-section>
+              <q-item-section>{{ link.name }}</q-item-section>
+              <!-- <q-item-section side> <q-icon name="info" /> </q-item-section> -->
+            </q-item>
 
             <q-item-section side v-if="link.separator">
               <q-separator />
@@ -44,12 +45,18 @@
           </q-item>
         </q-list>
       </q-scroll-area>
+      <div class="mt-auto">
+        <q-btn @click="authStore.logout" label="Logout" color="negative" class="" />
+      </div>
     </q-drawer>
 
     <!--  -->
     <q-page-container>
       <router-view />
     </q-page-container>
+    <q-footer elevated>
+      <div class="q-pa-md text-center">&copy; 2024 All rights reserved.</div>
+    </q-footer>
   </q-layout>
 </template>
 
